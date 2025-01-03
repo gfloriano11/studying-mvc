@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS social_media;
+
+CREATE DATABASE social_media;
+
+USE social_media;
+
+CREATE TABLE post(
+	post_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE comments(
+	comment_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    post_id INT NOT NULL,
+    user_name VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (post_id) REFERENCES post (post_id)
+);

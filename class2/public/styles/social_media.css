@@ -1,11 +1,17 @@
 /* sem media = desktop; */
 
+#feed_title{
+    margin-top: 35px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
 #feed_container{
-    width: 50%;
+    width: 30%;
 }
 
 #feed{
-    margin-top: 12%;
+    margin-top: 45px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -14,17 +20,17 @@
 }
 
 .post_container{
-    min-width: 60%;
-    max-width: 100%;
+    width: 100%;
+    margin-bottom: 100px;
 }
 
 .post{
-    padding: 0 20px;
+    padding: 20px 20px;
     width: 100%;
     height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-radius: 20px;
     border: 1px solid #7a7a7a;
@@ -35,10 +41,51 @@
     width: 100%;
 }
 
+.title{
+    font-size: 20px
+}
+
 .content_container{
+    /* margin-bottom: 80px; */
     width: 100%;
+}
+
+.content{
+    font-size: 18px
 }
 
 .comments_container{
     width: 100%;
+}
+
+.comments{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user_name{
+    font-weight: 600
+}
+
+@media (max-width: 768px) and (min-width: 426px){
+    #feed_container{
+        width: 65%;
+    }
+
+    .post{
+        height: 300px;
+    }
+}
+
+
+@media (max-width: 425px){
+    #feed_container{
+        width: 90%;
+    }
+
+    .post{
+        height: 300px;
+    }
 }

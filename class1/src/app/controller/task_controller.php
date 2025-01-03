@@ -33,3 +33,5 @@
 // here, I did a array to has all the parameters and their values. after that, 
 // in the forEach, PHP do all the job to use their respective values in each parameter.
 // and finally, execute the query.
+
+// IMPORTANT: This was used to learn about query security. Class 2 has specific content about MVC!

@@ -1,10 +1,10 @@
 <?php
 
-    class Home{
+    class HomeController{
 
         public function index(){
 
-            echo 'Você está na home!';
+            // echo 'Você está na home!';
 
         }
     }

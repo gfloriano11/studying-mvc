@@ -5,13 +5,21 @@
     class Core{
         public function start_application($urlGet){ // function pulls the user's url
 
-            var_dump($urlGet); // function writes the url in a array.
+            // var_dump($urlGet); // function writes the url in a array.
 
-            $pagina = $urlGet['pagina'];
+            $pagina = ucfirst($urlGet['pagina']);
 
-            if($pagina === 'home'){
+            $controller = ucfirst($urlGet['pagina'].'Controller');
+
+            if(class_exists($controller)){
+                
+                echo 'bem vindo a ' . $pagina . '!' . '<br>' ;
+                
+            } else {
+
+                echo 'erro: página não encontrada';
                 
             }
-
+            
         }
     }

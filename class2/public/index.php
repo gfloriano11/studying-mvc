@@ -1,6 +1,11 @@
 <?php
 
     require_once '../src/app/core/Core.php';
+    
+    require_once '../src/app/controller/HomeController.php';
+
+    require_once '../src/app/controller/AboutController.php';
+
 
     $template = file_get_contents('../src/app/template/structure.html');
 

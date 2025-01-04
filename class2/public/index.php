@@ -1,8 +1,13 @@
 <?php
 
+    require_once '../src/app/core/Core.php';
+
     $template = file_get_contents('../src/app/template/structure.html');
 
     // file_get_contents -> get the structure.html
+
+    $core = new Core;
+    $core->start_application($_GET); // calls function and get the url that user is in the moment.
     
     echo $template;
     

@@ -2,9 +2,9 @@
 
     class HomeController{
 
-        public function index(){
+        public function home(){
 
-            // echo 'Você está na home!';
+            echo '<p id=feed_title>Posts Recentes:</p>';
 
         }
     }

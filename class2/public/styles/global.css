@@ -36,6 +36,11 @@ a:hover{
     text-decoration: underline;
     color: rgb(49, 105, 158);
 }
+
+#about_link{
+    color: rgb(49, 105, 158);
+}
+
 #application{
     width: 100%;
     display: flex;

@@ -5,26 +5,32 @@
     class Core{
         public function start_application($urlGet){
 
-            if(array_key_exists('page' , $urlGet)){
-                $keys = array_keys($urlGet);
+            $keys = array_keys($urlGet);
+
+            $values = array_values($urlGet);
+
+            
+            
+            if(isset($urlGet['page']) && $keys[0] === 'page'){ // verify if ['page'] has a value and if the param is page
+                
+                $controller = ucfirst($urlGet['page'].'Controller');
+                
+                $page = $urlGet['page'];
                 
             } else{
                 
-                $method = 'error';
-                $controller = 'ErrorController';
-            }
-
-            if(isset($urlGet['page']) && $keys[0] === 'page'){ // verify if ['page'] has a value and if the param is page
-
-                $controller = ucfirst($urlGet['page'].'Controller');
-
-                $page = $urlGet['page'];
-                
-            } else{ // make if to know if exists param or not.
-
                 $controller = 'ErrorController';
 
                 $page = 'error';
+
+                if(count($keys) === 0){ // if the arrat is null.
+
+                    $controller = 'HomeController';
+
+                    $page = 'home';
+
+                }
+
             }
 
             if(class_exists($controller)){

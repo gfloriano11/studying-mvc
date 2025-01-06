@@ -3,23 +3,29 @@
     // class Core to use in the index.php
 
     class Core{
-        public function start_application($urlGet){ // function pulls the user's url
+        public function start_application($urlGet){
 
-            if(isset($urlGet['page'])){ // verify if have the awnser for the param 'page'.
+            if(array_key_exists('page' , $urlGet)){
+                $keys = array_keys($urlGet);
+                
+            } else{
+                
+                $method = 'error';
+                $controller = 'ErrorController';
+            }
+
+            if(isset($urlGet['page']) && $keys[0] === 'page'){ // verify if ['page'] has a value and if the param is page
 
                 $controller = ucfirst($urlGet['page'].'Controller');
 
-            } else{ // soon, create a if to verify if its 'page = x' or diferrent. 'xahsihsa = y'.
+                $page = ucfirst($urlGet['page']);
+                
+            } else{
 
-                $controller = 'HomeController';
+                $controller = 'ErrorController';
+
+                $page = 'error';
             }
-
-            // var_dump($urlGet); // function writes the url in a array.
-
-            $page = ucfirst($urlGet['page']);
-
-
-            // $method = 'index';
 
             if(class_exists($controller)){
                 

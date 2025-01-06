@@ -1,8 +1,11 @@
 <?php
 
+    // controller diz o que vai ser feito. ex:
+    // o index.php executa o core, e após isso, o core da um get na url e verifica o parametro;
+    // 
     class AboutController{
 
-        public function about(){ ?>
+        public function about(){ ?>  
             
             <p id="feed_title">Sobre o Site:</p>
             <div id="feed_container">

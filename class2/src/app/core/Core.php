@@ -18,9 +18,9 @@
 
                 $controller = ucfirst($urlGet['page'].'Controller');
 
-                $page = ucfirst($urlGet['page']);
+                $page = $urlGet['page'];
                 
-            } else{
+            } else{ // make if to know if exists param or not.
 
                 $controller = 'ErrorController';
 
@@ -29,14 +29,17 @@
 
             if(class_exists($controller)){
                 
-                if($page === 'Home'){
+                if($page === 'home'){
 
                     $method = 'home';
                     
-                } else{
+                } else if($page === 'about'){
                     
                     $method = 'about';
 
+                } else {
+
+                    $method = 'error';
                 }
                 
             } else{

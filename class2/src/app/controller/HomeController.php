@@ -4,11 +4,17 @@
 
         public function home(){
 
-            // echo '<p id=feed_title>Posts Recentes:</p>';
+            
+            try{
+                                
+                $posts = Post::selectPosts();
 
-            $posts = Post::selectPosts();
+                echo '<p id=feed_title>Posts Recentes:</p>';
+                
 
-            var_dump($posts);
+            } catch (Exception $error){
+                echo '<p id="feed_title">' . $error->getMessage() . '</p>';
+            }
 
         }
     }

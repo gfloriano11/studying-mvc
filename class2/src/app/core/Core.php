@@ -1,8 +1,8 @@
 <?php
-
     // class Core to use in the index.php
 
     class Core{
+
         public function start_application($urlGet){
 
             $keys = array_keys($urlGet);

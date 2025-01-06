@@ -4,7 +4,9 @@
 
         public function home(){
 
-            echo '<p id=feed_title>Posts Recentes:</p>';
+            // echo '<p id=feed_title>Posts Recentes:</p>';
+
+            Post::selectPosts();
 
         }
     }

@@ -6,7 +6,9 @@
 
             // echo '<p id=feed_title>Posts Recentes:</p>';
 
-            Post::selectPosts();
+            $posts = Post::selectPosts();
+
+            var_dump($posts);
 
         }
     }

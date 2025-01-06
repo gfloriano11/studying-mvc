@@ -19,7 +19,7 @@
                 
                 $result = $statement->get_result();
                 
-                var_dump($result->fetch_all(MYSQLI_ASSOC));
+                // var_dump($result->fetch_all(MYSQLI_ASSOC));
                 //fetch_all para bancos pequenos
                 
                 //fetch_assoc para grandes dados.

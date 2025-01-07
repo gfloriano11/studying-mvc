@@ -51,7 +51,7 @@
             } catch (Exception $error){
                 Connection::endConn();
                 
-                throw new Error('not possible to create your profile, try again later!' . $error->getMessage());
+                throw new Exception('not possible to create your profile, try again later!' . $error->getMessage());
             }
 
         }

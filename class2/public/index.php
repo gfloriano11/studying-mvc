@@ -7,8 +7,10 @@
     require_once '../src/app/controller/HomeController.php';
     require_once '../src/app/controller/AboutController.php';
     require_once '../src/app/controller/ErrorController.php';
+    require_once '../src/app/controller/UserController.php';
 
     require_once '../src/app/model/Post.php';
+    require_once '../src/app/model/User.php';
 
     $template = file_get_contents('../src/app/template/structure.html');
 

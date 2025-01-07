@@ -11,7 +11,7 @@
                 throw new Exception("Connection failed: " . $conn->connect_error);
             }
 
-            $query = "SELECT * FROM post WHERE 'title' = 'kkj' ORDER BY post_id DESC ";
+            $query = "SELECT * FROM post ORDER BY post_id DESC ";
 
             $statement = $conn->prepare($query);
 

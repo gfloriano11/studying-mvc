@@ -16,6 +16,12 @@
                 $controller = ucfirst($urlGet['page'].'Controller');
                 
                 $page = $urlGet['page'];
+
+                $teste = $urlGet['method'];
+
+                echo ($page);
+                echo ($controller);
+                echo $teste;
                 
             } else{
                 
@@ -43,6 +49,10 @@
                     
                     $method = 'about';
 
+                } else if($page === 'user'){
+
+                    $method = 'createUser';
+                
                 } else {
 
                     $method = 'error';

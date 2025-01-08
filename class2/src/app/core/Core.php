@@ -17,11 +17,19 @@
                 
                 $page = $urlGet['page'];
 
-                $teste = $urlGet['method'];
+                
+                // echo ($page);
+                // echo ($controller);
+                // echo $teste;
+                
+                if(key_exists('method', $urlGet)){
 
-                echo ($page);
-                echo ($controller);
-                echo $teste;
+                    $teste = $urlGet['method'];
+
+                } else {
+                    $teste = 'none';
+                }
+                
                 
             } else{
                 

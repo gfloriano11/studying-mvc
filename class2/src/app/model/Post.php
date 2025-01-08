@@ -38,4 +38,10 @@
             
             return $data;
         }
+
+        public static function selectComments($id){
+            
+
+            // return $data;
+        }
     }

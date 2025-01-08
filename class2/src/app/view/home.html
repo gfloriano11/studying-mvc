@@ -16,44 +16,38 @@
         <p id="feed_title">Posts Recentes:</p>
         <div id="feed_container">
             <div id="feed">  
+            {% for post in posts %}
                 <div class="post_container">
                     <div class="post">
                         <div class="title_container">
                             <a class="title">
-                                <p>Titulo da Postagem</p>
+                                <p>{{post.title}} | {{post.post_id}}</p>
                             </a>
                         </div>
                         <div class="content_container">
                             <div class="content">
-                                <p>Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla </p>
+                                <p>{{post.content}}</p>
                             </div>
                         </div>
                         <div class="comments_container">
                             <div class="comments">
+                            {% for comment in range(0, 1) %}
                                 <div class="comment_container">
                                     <div class="comment">
                                         <div class="user_name">
-                                            <p>Gustavo Floriano</p>
+                                            <p>{{comment.user_name}}</p>
                                         </div>
                                         <div class="comment_text">
-                                            <p>Caraca, mano! Foda demais!</p>
+                                            <p>{{comment.content}}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="comment_container">
-                                    <div class="comment">
-                                        <div class="user_name">
-                                            <p>Gustavo Floriano</p>
-                                        </div>
-                                        <div class="comment_text">
-                                            <p>Caraca, mano! Foda demais!</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
+            {% endfor %}
             </div>
         </div>
     </section>

@@ -48,23 +48,18 @@
             }
 
             if(class_exists($controller)){
+
                 
-                if($page === 'home'){
-
-                    $method = 'home';
+                if(count($keys) === 0){
+                    $method = $page;
                     
-                } else if($page === 'about'){
-                    
-                    $method = 'about';
-
-                } else if($page === 'user'){
-
-                    $method = 'createUser';
-                
                 } else {
+                    
+                    $page = $urlGet['page'];
+                    $method = $page;
 
-                    $method = 'error';
                 }
+                
                 
             } else{
                 

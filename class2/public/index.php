@@ -8,6 +8,7 @@
     require_once '../src/app/controller/AboutController.php';
     require_once '../src/app/controller/ErrorController.php';
     require_once '../src/app/controller/UserController.php';
+    require_once '../src/app/controller/PostController.php';
 
     require_once '../src/app/model/Post.php';
     require_once '../src/app/model/User.php';

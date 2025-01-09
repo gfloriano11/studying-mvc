@@ -52,10 +52,11 @@
             foreach ($post_data as $post) {
                 $id = $post['post_id']; // Acessando o 'id' de cada post
 
-                $query = "SELECT * FROM comments AS c
+                $query = "SELECT comment_id, user_name, c.content, c.created_at FROM comments AS c
                 INNER JOIN post AS p
                 ON p.post_id = c.post_id
-                WHERE c.post_id = $id";
+                WHERE c.post_id = $id
+                ORDER BY p.post_id DESC";
 
                 $statement = $conn->prepare($query);
 
@@ -70,10 +71,6 @@
                 }
 
                 $result->free();
-
-                if(!$comments_data){
-                    throw new Exception("Be the first to comment!");
-                }
 
                 Connection::endConn();
 

@@ -16,13 +16,18 @@
                 $params = array();
                 $params['posts'] = $posts;
 
-                $id = $params['posts.id'];
+                $data = $params['posts'];
 
-                $comments = Post::selectComments($id);
+                // var_dump($data);
+
+                $comments = Post::selectComments($data);
 
                 $params['comments'] = $comments;
 
+                // var_dump($params['comments']);
+
                 $content = $template->render($params);
+                // $content = $template->render($params);
 
                 echo $content;
                                 

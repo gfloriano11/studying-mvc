@@ -34,14 +34,51 @@
                 throw new Exception("Any Post has been Posted :(");
             }
             
-            Connection::endConn();
+            // Connection::endConn();
             
             return $data;
         }
 
-        public static function selectComments($id){
-            
+        public static function selectComments($post_data){
 
-            // return $data;
+            $conn = Connection::getConn();
+
+            if($conn->connect_error){
+                throw new Exception("Connection failed: " . $conn->connect_error);
+            }
+
+            // var_dump($post_data);
+
+            foreach ($post_data as $post) {
+                $id = $post['post_id']; // Acessando o 'id' de cada post
+
+                $query = "SELECT * FROM comments AS c
+                INNER JOIN post AS p
+                ON p.post_id = c.post_id
+                WHERE c.post_id = $id";
+
+                $statement = $conn->prepare($query);
+
+                $statement->execute();
+
+                $result = $statement->get_result();
+
+                $comments_data = [];
+
+                while($row = $result->fetch_assoc()){
+                    $comments_data[] = $row;
+                }
+
+                $result->free();
+
+                if(!$comments_data){
+                    throw new Exception("Be the first to comment!");
+                }
+
+                Connection::endConn();
+
+
+                return $comments_data;
+            }
         }
     }

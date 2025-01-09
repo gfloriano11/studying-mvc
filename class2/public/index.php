@@ -42,7 +42,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/social_media.css">
     <link rel="stylesheet" href="styles/global.css">
-    <title>Welcome to The Social Media</title>
 </head>
 <body>
 </body>

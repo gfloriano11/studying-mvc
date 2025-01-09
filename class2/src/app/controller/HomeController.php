@@ -8,12 +8,15 @@
             try{
 
                 $posts = Post::selectPosts();
+
                 
                 $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
                 $twig = new \Twig\Environment($loader); 
                 $template = $twig->load('home.html');
                 
                 $params = array();
+                
+                $params['page'] = 'Home';
                 $params['posts'] = $posts;
 
                 $data = $params['posts'];

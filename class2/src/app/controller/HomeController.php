@@ -39,7 +39,16 @@
                 
 
             } catch (Exception $error){
-                echo '<p id="feed_title">' . $error->getMessage() . '</p>';
+
+                $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
+                $twig = new \Twig\Environment($loader); 
+                $template = $twig->load('home.html');
+
+                $params['posts'] = null;
+
+                $content = $template->render($params);
+
+                echo $content;
             }
 
         }

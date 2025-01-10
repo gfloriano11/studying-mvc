@@ -40,7 +40,7 @@
         }
 
         public static function selectPostById($id){
-            
+
             $conn = Connection::getConn();
 
             $query = "SELECT * FROM post
@@ -56,12 +56,12 @@
 
             $data = [];
 
-            while($row = $result->fetch_assoc()){
-                $data[] = $row;
-            }
+            $data = $result->fetch_assoc();
+
+            $result->free();
 
             if(!$data){
-                throw new Exception("Any Post has been Posted :(");
+                throw new Exception("This Post Doesn't Exists.");
             }
 
             return $data;

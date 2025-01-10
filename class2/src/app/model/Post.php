@@ -39,6 +39,35 @@
             return $data;
         }
 
+        public static function selectPostById($id){
+            
+            $conn = Connection::getConn();
+
+            $query = "SELECT * FROM post
+            WHERE post_id = ?";
+
+            $statement = $conn->prepare($query);
+
+            $statement->bind_param('i', $id);
+
+            $statement->execute();
+
+            $result = $statement->get_result();
+
+            $data = [];
+
+            while($row = $result->fetch_assoc()){
+                $data[] = $row;
+            }
+
+            if(!$data){
+                throw new Exception("Any Post has been Posted :(");
+            }
+
+            return $data;
+            
+        }
+
         public static function selectComments($post_data){
 
             $conn = Connection::getConn();

@@ -12,6 +12,7 @@
 
     require_once '../src/app/model/Post.php';
     require_once '../src/app/model/User.php';
+    require_once '../src/app/model/Comment.php';
 
     require_once '../vendor/autoload.php';
 

@@ -23,7 +23,7 @@
 
                 // var_dump($data);
 
-                $comments = Post::selectComments($data);
+                $comments = Comment::selectComments($data);
 
                 $params['comments'] = $comments;
 

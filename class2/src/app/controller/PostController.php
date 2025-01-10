@@ -8,7 +8,7 @@
 
                 $id = $_GET['id'];
 
-                $selectedPost[] = Comment::selectPostById($id);
+                $selectedPost[] = Post::selectPostById($id);
 
                 $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
                 $twig = new \Twig\Environment($loader); 

@@ -15,7 +15,7 @@
 
     require_once '../vendor/autoload.php';
 
-    $template = file_get_contents('../src/app/template/structure.html');
+    $template = file_get_contents('../src/app/template/template.html');
 
     // file_get_contents -> get the structure.html
 

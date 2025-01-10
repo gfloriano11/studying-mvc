@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{post.title}}</title>
 </head>
 <body>
-    
+    <section id="application">
+        <p id="feed_title">Post:</p>
+        <div id="feed_container">
+            <div id="feed">  
+            {% for post in selectedPost %}
+                <div class="post_container">
+                    <div class="post">
+                        <div class="title_container">
+                            <a class="title" href="?page=post&id={{post.post_id}}">
+                                <p>{{post.title}}</p>
+                            </a>
+                        </div>
+                        <div class="content_container">
+                            <div class="content">
+                                <p>{{post.content}}</p>
+                            </div>
+                        </div>
+                        <!-- <div class="comments_container">
+                            <div class="comments">
+                            {% if comments %}
+                                {% for comment in comments|slice(0,2) %}
+                                    <div class="comment_container">
+                                        <div class="comment">
+                                            <div class="user_name">
+                                                <p>{{comment.user_name}}</p>
+                                            </div>
+                                            <div class="comment_text">
+                                                <p>{{comment.content}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            {% if not comments %}
+                                <p>Be the First to Comment!</p>
+                            {% endif %}
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            {% endfor %}
+            {% for teste in testes %}
+                <p>{{teste}}</p>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
 </body>
 </html>

@@ -9,14 +9,14 @@
                 $id = $_GET['id'];
 
                 $selectedPost = Post::selectPostById($id);
+                $selectedComments = Comment::selectComments($id);
 
                 $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
                 $twig = new \Twig\Environment($loader); 
                 $template = $twig->load('post.html');
 
-                $params = array();
-
                 $params['post'] = $selectedPost;
+                $params['comments'] = $selectedComments;
 
                 $content = $template->render($params);
 

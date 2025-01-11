@@ -14,8 +14,6 @@
                 $twig = new \Twig\Environment($loader); 
                 $template = $twig->load('home.html');
                 
-                $params = array();
-                
                 $params['posts'] = $posts;
 
                 $content = $template->render($params);

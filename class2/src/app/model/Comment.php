@@ -2,7 +2,7 @@
 
     class Comment{
         
-        public static function selectComments($post_data){
+        public static function selectComments($post_id){
 
             $conn = Connection::getConn();
 
@@ -10,11 +10,8 @@
                 throw new Exception("Connection failed: " . $conn->connect_error);
             }
 
-            var_dump($post_data);
-
-            foreach ($post_data as $post) {
-                $id = $post['post_id']; // Acessando o 'id' de cada post
-
+                $id = $post_id; // Acessando o 'id' de cada post
+            
                 $query = "SELECT * FROM comments
                 WHERE post_id = ?";
 
@@ -26,22 +23,16 @@
 
                 $result = $statement->get_result();
 
-                $comments_data = [];
-
-                while($row = $result->fetch_assoc()){
-                    $comments_data[] = $row;
-                }
-
-                if(!$comments_data){
-                    throw new Exception("Any Post has Been Posted!");
-                }
-
+                $data = $result->fetch_object('Comment');
+    
                 $result->free();
-
+    
+                if(!$data){
+                    throw new Exception("Be the first to Comment!");
+                }
+                
                 Connection::endConn();
 
-
-                return $comments_data;
+                return $data;
             }
         }
-    }

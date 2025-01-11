@@ -21,7 +21,7 @@
 
             $data = [];
 
-            while($row = $result->fetch_object('post')){
+            while($row = $result->fetch_object('Post')){
                 $data[] = $row;
             }
 
@@ -52,14 +52,12 @@
 
             $result = $statement->get_result();
 
-            $data = $result->fetch_object('post');
+            $data = $result->fetch_object('Post');
 
             $result->free();
 
             if(!$data){
                 throw new Exception("This Post Doesn't Exists.");
-            } else {
-                $data->comentarios = Comment::selectComments($data->post_id);
             }
 
             return $data;

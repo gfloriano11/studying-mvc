@@ -16,27 +16,12 @@
                 
                 $params = array();
                 
-                $params['page'] = 'Home';
                 $params['posts'] = $posts;
-
-                $data = $params['posts'];
-
-                // var_dump($data);
-
-                $comments = Comment::selectComments($data);
-
-                $params['comments'] = $comments;
-
-                // var_dump($params['comments']);
 
                 $content = $template->render($params);
                 // $content = $template->render($params);
 
                 echo $content;
-                                
-
-                // echo '<p id=feed_title>Posts Recentes:</p>';
-                
 
             } catch (Exception $error){
 

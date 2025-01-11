@@ -2,7 +2,7 @@
 
     class Comment{
         
-        public static function selectComments($post_id){
+        public static function selectCommentsByPostId($post_id){
 
             $conn = Connection::getConn();
 

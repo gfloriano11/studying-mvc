@@ -9,7 +9,7 @@
                 $id = $_GET['id'];
 
                 $selectedPost = Post::selectPostById($id);
-                $selectedComments = Comment::selectComments($id);
+                $selectedComments = Comment::selectCommentsByPostId($id);
 
                 $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
                 $twig = new \Twig\Environment($loader); 

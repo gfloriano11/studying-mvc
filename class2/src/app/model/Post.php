@@ -56,10 +56,6 @@
 
             $result->free();
 
-            if(!$data){
-                throw new Exception("This Post Doesn't Exists.");
-            }
-
             return $data;
             
         }

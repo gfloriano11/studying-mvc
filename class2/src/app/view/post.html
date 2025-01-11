@@ -15,6 +15,7 @@
         <a href="?page=about">Sobre</a>
     </nav>
     <section id="application">
+        {% if post %}
         <p id="feed_title">Post:</p>
         <div id="feed_container">
             <div id="feed">  
@@ -55,6 +56,9 @@
                 </div>
             </div>
         </div>
+        {% else %}
+        <p id="feed_title">This post doesn't exists.</p>
+        {% endif %}
     </section>
 </body>
 </html>

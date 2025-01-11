@@ -16,14 +16,12 @@
             $statement = $conn->prepare($query);
 
             $statement->execute();
-
                 
             $result = $statement->get_result();
-                
 
             $data = [];
 
-            while($row = $result->fetch_assoc()){
+            while($row = $result->fetch_object('post')){
                 $data[] = $row;
             }
 
@@ -54,14 +52,14 @@
 
             $result = $statement->get_result();
 
-            $data = [];
-
-            $data = $result->fetch_assoc();
+            $data = $result->fetch_object('post');
 
             $result->free();
 
             if(!$data){
                 throw new Exception("This Post Doesn't Exists.");
+            } else {
+                $data->comentarios = Comment::selectComments($data->post_id);
             }
 
             return $data;

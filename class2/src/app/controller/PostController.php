@@ -14,9 +14,10 @@
                 $twig = new \Twig\Environment($loader); 
                 $template = $twig->load('post.html');
 
-                $params = array();
-                $params['title'] = $selectedPost[0]['title'];
-                $params['content'] = $selectedPost[0]['content'];
+                $params = [];
+
+                $params['post'] = $selectedPost[0]; // pega sempre a primeira posição do array =>
+                // já que o result da query sempre vai ser um post só, sempre será [0] 
 
                 $content = $template->render($params);
 

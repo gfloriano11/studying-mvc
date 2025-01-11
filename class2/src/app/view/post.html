@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/styles/social_media.css">
     <link rel="stylesheet" href="../public/styles/global.css">
-    <title>Post: {{post.title}}</title>
+    <title>{{post.title}}</title>
 </head>
 <body>
     <nav>
@@ -32,7 +32,7 @@
                         <div class="comments_container">
                             <div class="comments">
                             {% if comments %}
-                                {% for comment in comments|slice(0,2) %}
+                                {% for comment in comments %}
                                     <div class="comment_container">
                                         <div class="comment">
                                             <div class="user_name">
@@ -44,8 +44,7 @@
                                         </div>
                                     </div>
                                 {% endfor %}
-                            {% endif %}
-                            {% if not comments %}
+                            {% else %}
                                 <p class="user_name">Be the First to Comment!</p>
                             {% endif %}
                             </div>

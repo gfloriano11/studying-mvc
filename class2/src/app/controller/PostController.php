@@ -8,16 +8,15 @@
 
                 $id = $_GET['id'];
 
-                $selectedPost[] = Post::selectPostById($id);
+                $selectedPost = Post::selectPostById($id);
 
                 $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
                 $twig = new \Twig\Environment($loader); 
                 $template = $twig->load('post.html');
 
-                $params = [];
+                $params = array();
 
-                $params['post'] = $selectedPost[0]; // pega sempre a primeira posição do array =>
-                // já que o result da query sempre vai ser um post só, sempre será [0] 
+                $params['post'] = $selectedPost;
 
                 $content = $template->render($params);
 

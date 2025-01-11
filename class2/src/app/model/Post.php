@@ -19,8 +19,6 @@
                 
             $result = $statement->get_result();
 
-            $data = [];
-
             while($row = $result->fetch_object('Post')){
                 $data[] = $row;
             }

@@ -8,7 +8,14 @@
             try{
 
                 $posts = Post::selectPosts();
+                $params['posts'] = $posts; 
+                
+                // foreach($posts as $post){
+                    
+                //     $comments[$post->post_id] = Comment::selectCommentsByPostId($post->post_id);
+                // }
 
+                // $params['comments'] = $comments;
                 
                 $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
                 $twig = new \Twig\Environment($loader); 

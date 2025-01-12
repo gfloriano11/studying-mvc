@@ -23,8 +23,8 @@
 
             $result = $statement->get_result();
 
-            while($row = $result->fetch_object('Comment')){
-                $data[] = $row;
+            while($row[] = $result->fetch_object('Comment')){
+                $data = $row;
             }
     
             $result->free();

@@ -33,7 +33,7 @@
                 throw new Exception("Be the first to Comment!");
             }
                 
-            Connection::endConn();
+            // Connection::endConn();
 
             return $data;
         }

@@ -69,6 +69,11 @@
     font-weight: 600
 }
 
+.text{
+    font-weight: 600;
+
+}
+
 @media (max-width: 768px) and (min-width: 426px){
     #feed_container{
         width: 65%;

@@ -16,19 +16,6 @@
                 $controller = ucfirst($urlGet['page'].'Controller');
                 
                 $page = $urlGet['page'];
-
-                
-                // echo ($page);
-                // echo ($controller);
-                // echo $teste;
-                
-                if(key_exists('method', $urlGet)){
-
-                    $teste = $urlGet['method'];
-
-                } else {
-                    $teste = 'none';
-                }
                 
                 
             } else{
@@ -58,6 +45,14 @@
                     $page = $urlGet['page'];
                     $method = $page;
 
+                }
+
+                if(key_exists('method', $urlGet)){
+
+                    $method = $urlGet['method'];
+
+                } else {
+                    $method = $page;
                 }
                 
                 

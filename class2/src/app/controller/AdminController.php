@@ -16,4 +16,12 @@
 
             echo $content;
         }
+
+        public function edit(){
+            echo 'entrou na edição!';
+        }
+
+        public function delete(){
+            echo 'entrou no delete!';
+        }
     }

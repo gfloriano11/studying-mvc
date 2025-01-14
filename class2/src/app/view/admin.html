@@ -1,0 +1,73 @@
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles/social_media.css">
+    <link rel="stylesheet" href="../public/styles/admin.css">
+    <link rel="stylesheet" href="../public/styles/global.css">
+    <title>Admin</title>
+</head>
+<body>
+    <nav>
+        <a href="/projects/studying-mvc/class2/public/">Home</a> |
+        <a href="?page=about">Sobre</a> |
+        <a href="?page=admin">Admin</a>
+    </nav>
+    {% if posts %}
+    <section id="application">
+        <p id="feed_title">Posts Criados:</p>
+        <div id="feed_container">
+            <div id="feed">  
+                <div id="posts_Container">
+                    <table id="post_table">
+                        <thead>
+                            <tr>
+                                <th>ID do Post:</th>
+                                <th>Nome da Postagem:</th>
+                                <th>Ações:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for post in posts %}
+                            <tr>
+                                <td>{{post.post_id}}</td>
+                                <td>{{post.title}}</td>
+                                <td><a href="?page=admin&method=edit&id={{post.post_id}}">Editar</a> |
+                                <a href="?page=admin&method=delete&id={{post.post_id}}">Excluir</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- {% for post in posts %}
+                <div class="post_container">
+                     <div class="post">
+                        <div class="title_container">
+                            <a class="title" href="?page=post&id={{post.post_id}}">
+                                <p>{{post.title}}</p>
+                            </a>
+                        </div>
+                        <div class="content_container">
+                            <div class="content">
+                                <p>{{post.content}}</p>
+                            </div>
+                        </div>
+                        <div class="text_container" style="padding-bottom: 50px;">
+                            <a class="text" href="?page=post&id={{post.post_id}}">
+                                <p>See the comments!</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} -->
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    {% if not posts %}
+    <section id="application">
+        <p id="feed_title">Any Post has Been Posted :(</p>
+    </section>
+    {% endif %}
+</body>
+</html>

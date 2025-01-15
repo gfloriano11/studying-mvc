@@ -18,6 +18,8 @@
         }
 
         public function create(){
+            $post = $_POST;
+            
             $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
             $twig = new \Twig\Environment($loader);
             $template = $twig->load('create_post.html');
@@ -26,7 +28,6 @@
             
             echo $content;
 
-            $post = $_POST;
 
             Post::createPost($post);
 

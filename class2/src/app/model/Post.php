@@ -59,12 +59,28 @@
         }
 
         public static function createPost($post_data){
-            // var_dump($post_data);
-            foreach($post_data as $key => $value){
-                $$key = $value;
-            }
 
-            $query = '';
+            if($post_data){
+
+                $conn = Connection::getConn();
+
+                foreach($post_data as $key => $value){
+                    $$key = $value; // loop que transforma cada atributo do form em uma variavel.
+                }
+
+                $query = "INSERT INTO post
+                (post_title, post_content)
+                VALUES
+                (?, ?)";
+                
+                $statement = $conn->prepare($query);
+    
+                $statement->bind_param('ss', $post_title,  $post_content);
+    
+                $statement->execute();
+    
+                Connection::endConn();
+            }
             
         }
 

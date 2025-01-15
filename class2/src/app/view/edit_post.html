@@ -1,0 +1,43 @@
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles/social_media.css">
+    <link rel="stylesheet" href="../public/styles/edit_post.css">
+    <link rel="stylesheet" href="../public/styles/global.css">
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <a href="/projects/studying-mvc/class2/public/">Home</a> |
+        <a href="?page=about">Sobre</a> |
+        <a href="?page=admin">Admin</a>
+    </nav>
+    {% if post %}
+    <section id="application">
+        <p id="feed_title">Editar Post:</p>
+        <div id="feed_container">
+            <div id="feed">  
+                <div id="form_container">
+                    <form method="POST" action="?page=admin&method=edit">
+                        <label for="post_title">Nome da Postagem:</label>
+                        <input type="text" name="post_title" value="{{post.title}}">
+                        <label for="post_content">Conteúdo:</label>
+                        <textarea name="post_content" id="content">{{post.content}}</textarea>
+                        <input type="hidden" name="post_id" value="{{post.post_id}}">
+                        <div id="center">
+                            <button>Atualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    {% if not post %}
+    <section id="application">
+        <p id="feed_title">Any Post has Been Posted :(</p>
+    </section>
+    {% endif %}
+</body>
+</html>

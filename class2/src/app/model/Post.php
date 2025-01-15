@@ -57,4 +57,19 @@
             return $data;
             
         }
+
+        public static function createPost($post_data){
+            // var_dump($post_data);
+            foreach($post_data as $key => $value){
+                $$key = $value;
+            }
+
+            $query = '';
+            
+        }
+
+        // public static function editPostById($post_id){
+
+            
+        // }
     }

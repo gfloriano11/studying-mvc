@@ -80,6 +80,8 @@
                 $statement->execute();
     
                 Connection::endConn();
+
+                header('location: index.php');
             }
             
         }

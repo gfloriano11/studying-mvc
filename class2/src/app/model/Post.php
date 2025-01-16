@@ -69,7 +69,7 @@
                 }
 
                 $query = "INSERT INTO post
-                (post_title, post_content)
+                (title, content)
                 VALUES
                 (?, ?)";
                 

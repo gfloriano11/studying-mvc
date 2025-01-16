@@ -28,27 +28,36 @@
             
             echo $content;
 
-
             Post::createPost($post);
 
         }
 
         public function edit(){
+
+            $post = $_POST;
+
+            $param['post'] = $post;
+
+            var_dump($post);
+            // echo $param['post']->post_id;
+
             
             $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
             $twig = new \Twig\Environment($loader);
             $template = $twig->load('edit_post.html');
 
-            // $post = Post::editPostById($id);
+            $content = $template->render($param);
+
+            echo $content;
+
+            Post::editPostById($param['post']);
             
-            // $param['post'] = $post;
-            
-            // $content = $template->render($param);
-            
-            // echo $content;
         }
         
         public function delete(){
-            echo 'entrou no delete!';
+
+            $post = $_GET;
+
+            Post::deletePostById($post['id']);
         }
     }

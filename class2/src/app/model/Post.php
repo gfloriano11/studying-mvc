@@ -86,8 +86,47 @@
             
         }
 
-        // public static function editPostById($post_id){
+        public static function editPostById($post_data){
 
-            
-        // }
+            if($post_data){
+                foreach($post_data as $key => $value){
+                    $$key = $value;
+                }
+                
+                $conn = Connection::getConn();
+    
+                $query = "UPDATE post SET title = ?,
+                content = ?
+                WHERE post_id = ?";
+    
+                $statatement = $conn->prepare($query);
+    
+                $statatement->bind_param('ssi', $post_title, $post_content, $id);
+    
+                $statatement->execute();
+    
+                Connection::endConn();
+    
+                // header('location: ?page=home');
+            }
+
+
+        }
+
+        public static function deletePostById($id){
+
+            $conn = Connection::getConn();
+
+            $query = "DELETE FROM post WHERE post_id = ?";
+
+            $statatement = $conn->prepare($query);
+
+            $statatement->bind_param('i', $id);
+
+            $statatement->execute();
+
+            Connection::endConn();
+
+            header('location: ?page=admin');
+        }
     }

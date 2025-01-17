@@ -4,17 +4,30 @@
 
         public function admin(){
 
-            $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
-            $twig = new \Twig\Environment($loader);
-            $template = $twig->load('admin.html');
+            try{
+                $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
+                $twig = new \Twig\Environment($loader);
+                $template = $twig->load('admin.html');
+    
+                $posts = Post::selectPosts();
+    
+                $params['posts'] = $posts;
+    
+                $content = $template->render($params);
+    
+                echo $content;
+            } catch (Exception $error){
 
-            $posts = Post::selectPosts();
+                $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
+                $twig = new \Twig\Environment($loader); 
+                $template = $twig->load('admin.html');
 
-            $params['posts'] = $posts;
+                $params['posts'] = null;
 
-            $content = $template->render($params);
+                $content = $template->render($params);
 
-            echo $content;
+                echo $content;
+            }
         }
 
         public function create(){
@@ -34,14 +47,12 @@
 
         public function edit(){
 
-            $post = $_POST;
+            $id = $_GET['id'];
+
+            $post = Post::selectPostById($id);
 
             $param['post'] = $post;
 
-            var_dump($post);
-            // echo $param['post']->post_id;
-
-            
             $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
             $twig = new \Twig\Environment($loader);
             $template = $twig->load('edit_post.html');
@@ -49,9 +60,13 @@
             $content = $template->render($param);
 
             echo $content;
-
-            Post::editPostById($param['post']);
             
+        }
+        
+        public function update(){
+            $post = $_POST;
+
+            Post::editPostById($post);
         }
         
         public function delete(){

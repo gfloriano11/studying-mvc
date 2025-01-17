@@ -19,6 +19,8 @@
                 
             $result = $statement->get_result();
 
+            $data = array();
+
             while($row = $result->fetch_object('Post')){
                 $data[] = $row;
             }
@@ -88,6 +90,8 @@
 
         public static function editPostById($post_data){
 
+            var_dump($post_data);
+
             if($post_data){
                 foreach($post_data as $key => $value){
                     $$key = $value;
@@ -101,18 +105,17 @@
     
                 $statatement = $conn->prepare($query);
     
-                $statatement->bind_param('ssi', $post_title, $post_content, $id);
+                $statatement->bind_param('ssi', $title, $content, $id);
     
                 $statatement->execute();
     
                 Connection::endConn();
     
-                // header('location: ?page=home');
+                header('location: ?page=home');
             }
 
 
         }
-
         public static function deletePostById($id){
 
             $conn = Connection::getConn();

@@ -4,8 +4,6 @@
 
         public function post(){
 
-            try{
-
                 $id = $_GET['id'];
 
                 $selectedPost = Post::selectPostById($id);
@@ -22,16 +20,5 @@
 
                 echo $content;
 
-            } catch (Exception $error){
-                $loader = new \Twig\Loader\FilesystemLoader('../src/app/view');
-                $twig = new \Twig\Environment($loader); 
-                $template = $twig->load('post.html');
-
-                $params['posts'] = null;
-
-                $content = $template->render($params);
-
-                echo $content;
-            }
         }
     }

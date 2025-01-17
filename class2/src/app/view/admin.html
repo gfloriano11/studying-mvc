@@ -47,10 +47,14 @@
             </div>
         </div>
     </section>
-    {% endif %}
-    {% if not posts %}
+    {% else %}
     <section id="application">
         <p id="feed_title">Any Post has Been Posted :(</p>
+        <div id="create_container">
+            <div id="create">
+                <a href="?page=admin&method=create">Criar post</a>
+            </div>
+        </div>
     </section>
     {% endif %}
 </body>

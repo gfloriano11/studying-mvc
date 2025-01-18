@@ -37,7 +37,6 @@ commented codes to understand more about
 <p>4. Put the code inside</p>
 <p>{
       "require": {
-  
       }
     }
 </p>

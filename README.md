@@ -35,8 +35,12 @@ commented codes to understand more about
 <p>3. Create a file "composer.json" in the root of the folder</p>
 
 <p>4. Put the code inside</p>
-<p>{
+<p>
+      
+      {
+      
       "require": {
+      
       }
     }
 </p>

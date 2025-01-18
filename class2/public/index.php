@@ -10,6 +10,7 @@
     require_once '../src/app/controller/UserController.php';
     require_once '../src/app/controller/PostController.php';
     require_once '../src/app/controller/AdminController.php';
+    require_once '../src/app/controller/CommentController.php';
 
     require_once '../src/app/model/Post.php';
     require_once '../src/app/model/User.php';
